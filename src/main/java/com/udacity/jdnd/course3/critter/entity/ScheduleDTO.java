@@ -13,10 +13,10 @@ public class ScheduleDTO {
 	public ScheduleDTO() {
 	}
 
-	public ScheduleDTO(Long eIds, Long pid, LocalDate date, EmployeeSkill activities) {
+	public ScheduleDTO(List<Long> employeeIds, List<Long> petIds, LocalDate date, EmployeeSkill activities) {
 		super();
-		this.employeeIds.add(eIds);
-		this.petIds.add(pid);
+		this.employeeIds = employeeIds;
+		this.petIds = petIds;
 		this.date = date;
 		this.activities = activities;
 	}

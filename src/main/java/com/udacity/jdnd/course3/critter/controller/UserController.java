@@ -72,7 +72,7 @@ public class UserController {
         e.setDays(dto.getDays());
         EmployeeDTO obj = null;
         try {
-        	obj = Convert.toEmployeeDTO(employeeService.save(e));
+        	obj = Convert.convertEmployee(employeeService.save(e));
         } catch (Exception ex) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "test not save", ex);
         }
@@ -87,7 +87,7 @@ public class UserController {
         } catch (Exception ex) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "test not exist", ex);
         }
-        return Convert.toEmployeeDTO(e);
+        return Convert.convertEmployee(e);
     }
 
     @PutMapping("/employee/{id}")
@@ -102,6 +102,6 @@ public class UserController {
     @GetMapping("/employee/availability")
     public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeDTO dto) {
         List<Employee> employees = employeeService.findByService(dto.getDays(), dto.getSkills());
-        return employees.stream().map(Convert::toEmployeeDTO).collect(Collectors.toList());
+        return employees.stream().map(Convert::convertEmployee).collect(Collectors.toList());
     }
 }

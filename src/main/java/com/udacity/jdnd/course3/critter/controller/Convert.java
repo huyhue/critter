@@ -24,7 +24,7 @@ public class Convert {
         return customerDTO;
     }
 
-    public static EmployeeDTO toEmployeeDTO(Employee employee) {
+    public static EmployeeDTO convertEmployee(Employee employee) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setId(employee.getId());
         employeeDTO.setName(employee.getName());
